@@ -1,4 +1,11 @@
 export default function getResponseFromAPI() {
-  return Promise.resolve(true);
+  const myPromise = new Promise(function(myResolver, myReject) {
+    let success = true;
+    if (success) {
+      myResolver('Success');
+    } else {
+      myReject('Failure');
+    }
+  });
+  return myPromise;
 }
-
