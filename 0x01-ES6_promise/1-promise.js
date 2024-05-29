@@ -3,7 +3,6 @@ export default function getFullResponseFromAPI(success) {
     status: 200,
     body: 'Success',
   };
-
   if (success) {
     return Promise.resolve(objResp);
   } else {
