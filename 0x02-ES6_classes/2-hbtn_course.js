@@ -38,12 +38,12 @@ export default class HolbertonCourse {
     if (Array.isArray(students)) {
       for (const student of students) {
         if (typeof student !== 'string') {
-          throw new TypeError('Students must be an Array of strings');
+          throw new TypeError('Students must be an array of strings');
         }
       }
       this._students = students;
     } else {
-      throw new TypeError('Students must be an Array');
+      throw new TypeError('Students mus be an array');
     }
   }
 }
