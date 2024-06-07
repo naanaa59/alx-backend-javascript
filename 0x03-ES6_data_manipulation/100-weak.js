@@ -4,8 +4,8 @@ export function queryAPI(endpoint) {
   if (value === undefined) {
     value = 0;
   }
+  weakMap.set(endpoint, value + 1);
   if (value >= 5) {
     throw new Error('Endpoint load is high');
   }
-  weakMap.set(endpoint, value + 1);
 }
