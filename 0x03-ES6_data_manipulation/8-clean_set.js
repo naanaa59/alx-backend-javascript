@@ -1,6 +1,6 @@
 export default function cleanSet(set, startString) {
   const seperator = '-';
-  if (startString === '') {
+  if (startString === '' || typeof (startString) !== 'string') {
     return '';
   }
   return Array.from(set)
