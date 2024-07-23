@@ -45,9 +45,9 @@ const app = http.createServer(async (req, res) => {
 
       res.end(finalResult);
     } catch (error) {
-      res.writeHead(200, { 'Content-Type': 'text/plain' });
-      res.end(error.message);
-      throw error;
+      res.writeHead(404, { 'Content-Type': 'text/plain' });
+      res.end(`This is the list of our students\n${error.message}`);
+      // throw error;
     }
   }
 });
