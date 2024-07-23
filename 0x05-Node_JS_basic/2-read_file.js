@@ -8,7 +8,7 @@ function countStudents(path) {
   const csStudents = [];
   const sweStudents = [];
 
-  for (let i = 1; i < lines.length; i = +1) {
+  for (let i = 1; i < lines.length; i += 1) {
     const fields = lines[i].split(',').map((field) => field.trim());
 
     const firstname = fields[0];
@@ -26,7 +26,7 @@ function countStudents(path) {
   const totalStudents = csStudents.length + sweStudents.length;
 
   console.log(`Number of students: ${totalStudents}`);
-  console.log(`Number os students in CS: ${csStudents.length}. List: ${csStudents.join(', ')}`);
-  console.log(`Number os students in SWE: ${sweStudents.length}. List: ${sweStudents.join(', ')}`);
+  console.log(`Number of students in CS: ${csStudents.length}. List: ${csStudents.join(', ')}`);
+  console.log(`Number of students in SWE: ${sweStudents.length}. List: ${sweStudents.join(', ')}`);
 }
 module.exports = countStudents;
