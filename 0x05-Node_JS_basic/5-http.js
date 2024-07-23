@@ -47,7 +47,7 @@ const app = http.createServer(async (req, res) => {
     } catch (error) {
       res.writeHead(200, { 'Content-Type': 'text/plain' });
       res.end(error.message);
-      // throw error;
+      throw error;
     }
   }
 });
