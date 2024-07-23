@@ -45,8 +45,9 @@ const app = http.createServer(async (req, res) => {
 
       res.end(finalResult);
     } catch (error) {
-      res.writeHead(500, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify(error));
+      res.writeHead(200, { 'Content-Type': 'text/plain' });
+      res.end(error.message);
+      // throw error;
     }
   }
 });
