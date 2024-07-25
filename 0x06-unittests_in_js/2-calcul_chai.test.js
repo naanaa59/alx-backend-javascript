@@ -42,44 +42,44 @@ describe("calculateNumber with SUM type", function() {
   });
 })
 
-// Test SUBTRACT
-describe("calculateNumber with SUBTRACT type", function() {
+// Test SUBSTRACT
+describe("calculateNumber with SUBSTRACT type", function() {
   it('should return the difference of rounded a = 1 and b = 3', function() {
-    expect(calculateNumber('SUBTRACT', 1, 3)).to.equal(0);
+    expect(calculateNumber('SUBSTRACT', 1, 3)).to.equal(-2);
   });
   it('should return the difference of rounded a = 1 and b = 3.7', function() {
-    expect(calculateNumber('SUBTRACT', 1, 3.7)).to.equal(0);
+    expect(calculateNumber('SUBSTRACT', 1, 3.7)).to.equal(-3);
   });
   it('should return the difference of rounded a = 1.2 and b = 3.7', function() {
-    expect(calculateNumber('SUBTRACT', 1.5, 3.7)).to.equal(0);
+    expect(calculateNumber('SUBSTRACT', 1.5, 3.7)).to.equal(-2);
   });
   it('should return the difference of rounded a = -1.4 and b = -3.7', function() {
-    expect(calculateNumber('SUBTRACT', -1.4, -3.6)).to.equal(0);
+    expect(calculateNumber('SUBSTRACT', -1.4, -3.6)).to.equal(3);
   });
   it('should return the difference of rounded a = 1.5 and b = -2.5', function() {
-    expect(calculateNumber('SUBTRACT', 1.5, -2.5)).to.equal(0);
+    expect(calculateNumber('SUBSTRACT', 1.5, -2.5)).to.equal(4);
   });
   it('should return the difference of rounded a = -2.5 and b = -2.5', function() {
-    expect(calculateNumber('SUBTRACT', -2.5, -2.5)).to.equal(0);
+    expect(calculateNumber('SUBSTRACT', -2.5, -2.5)).to.equal(0);
   });
   it('should handle very large numbers', function() {
-    expect(calculateNumber('SUBTRACT', 1e15, 1e15)).to.equal(0);
-    expect(calculateNumber('SUBTRACT', -1e15, -1e15)).to.equal(0);
+    expect(calculateNumber('SUBSTRACT', 1e15, 1e15)).to.equal(0);
+    expect(calculateNumber('SUBSTRACT', -1e15, -1e15)).to.equal(0);
   });
   it('should handle very small numbers', function() {
-    expect(calculateNumber('SUBTRACT', 1e-6, 1e-6)).to.equal(0);  // Both numbers are too small to round up
-    expect(calculateNumber('SUBTRACT', 1e-6, 1)).to.equal(0);    // One number rounds to 1, the other to 0
+    expect(calculateNumber('SUBSTRACT', 1e-6, 1e-6)).to.equal(0);  // Both numbers are too small to round up
+    expect(calculateNumber('SUBSTRACT', 1e-6, 1)).to.equal(-1);    // One number rounds to 1, the other to 0
   });
   it('should handle special values', function() {
-    // expect(calculateNumber('SUBTRACT', NaN, 1)).to.be.NaN;
-    expect(calculateNumber('SUBTRACT', Infinity, 1)).to.equal(0);
-    expect(calculateNumber('SUBTRACT', -Infinity, -1)).to.equal(0);
+    // expect(calculateNumber('SUBSTRACT', NaN, 1)).to.be.NaN;
+    expect(calculateNumber('SUBSTRACT', Infinity, 1)).to.equal(Infinity);
+    expect(calculateNumber('SUBSTRACT', -Infinity, -1)).to.equal(-Infinity);
   });
   it('should handle zero correctly', function() {
-    expect(calculateNumber('SUBTRACT', 0, 0)).to.equal(0);
-    expect(calculateNumber('SUBTRACT', 0, 1.5)).to.equal(0);
-    expect(calculateNumber('SUBTRACT', 1.5, 0)).to.equal(0);
-    expect(calculateNumber('SUBTRACT', 0, -1.5)).to.equal(0);
+    expect(calculateNumber('SUBSTRACT', 0, 0)).to.equal(0);
+    expect(calculateNumber('SUBSTRACT', 0, 1.5)).to.equal(-2);
+    expect(calculateNumber('SUBSTRACT', 1.5, 0)).to.equal(2);
+    expect(calculateNumber('SUBSTRACT', 0, -1.5)).to.equal(1);
   });
 })
 
