@@ -5,7 +5,7 @@ module.exports = function calculateNumber(type, a, b) {
   if (type === 'SUM') {
     result = rounedA + rounedB;
   } else if (type === 'SUBSTRACT') {
-    result = rounedB - rounedA;
+    result = rounedA - rounedB;
   } else if (type === 'DIVIDE') {
     if (rounedB === 0) {
       result = "Error";
