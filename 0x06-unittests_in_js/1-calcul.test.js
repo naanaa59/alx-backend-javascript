@@ -119,4 +119,7 @@ describe("upgraded calculateNumber with DIVIDE as type", function() {
     assert.equal(calculateNumber('DIVIDE', 1.5, 0), 'Error');
     assert.equal(calculateNumber('DIVIDE', 0, -1.5), 0);
   });
+  it('should return a string', function() {
+    assert.typeOf(calculateNumber('DIVIDE', 0, 0), 'string');
+  })
 })
