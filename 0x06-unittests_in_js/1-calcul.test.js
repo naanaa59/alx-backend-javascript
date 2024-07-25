@@ -20,6 +20,14 @@ describe("upgraded calculateNumber with SUM as type", function() {
   it('should return the sum of rounded a = -2.5 and b = -2.5', function() {
     assert.equal(calculateNumber('SUM', -2.5, -2.5), -4);
   });
+  it('should handle very large numbers', function() {
+    assert.equal(calculateNumber('SUM', 1e15, 1e15), 2e15);
+    assert.equal(calculateNumber('SUM', -1e15, -1e15), -2e15);
+  });
+  it('should handle very large numbers', function() {
+    assert.equal(calculateNumber('SUBTRACT', 1e15, 1e15), 0);
+    assert.equal(calculateNumber('SUBTRACT', -1e15, -1e15), 0);
+  });
   it('should handle very small numbers', function() {
     assert.equal(calculateNumber('SUM', 1e-6, 1e-6), 0);  // Both numbers are too small to round up
     assert.equal(calculateNumber('SUM', 1e-6, 1), 1);    // One number rounds to 1, the other to 0
@@ -91,6 +99,10 @@ describe("upgraded calculateNumber with DIVIDE as type", function() {
   });
   it('should return the division of a = -2.5 and b = -2.5', function() {
     assert.equal(calculateNumber('DIVIDE', -2.5, -2.5), 1);
+  });
+  it('should handle very large numbers', function() {
+    assert.equal(calculateNumber('DIVIDE', 1e15, 1), 1e15);
+    assert.equal(calculateNumber('DIVIDE', 1, 1e15), 1e-15);
   });
   it('should handle very small numbers', function() {
     assert.equal(calculateNumber('DIVIDE', 1e-6, 1e-6), 'Error');  // Both numbers are too small to round up
