@@ -123,3 +123,27 @@ describe("calculateNumber with DIVIDE type", function() {
     expect(calculateNumber('DIVIDE', 0, -1.5)).to.equal(0);
   });
 })
+
+// Some other edge cases
+// Test rounding behavior
+it('should round .5 towards the nearest even number', function() {
+  expect(calculateNumber('SUM', 2.5, 2.5)).to.equal(6); // Assuming bankers' rounding
+});
+
+// Test precision loss in division
+it('should handle precision loss in division correctly', function() {
+  expect(calculateNumber('DIVIDE', 1, 3)).to.be.closeTo(0.3333333333333333, 1e-15);
+});
+
+// Test handling of negative zero
+it('should treat +0 and -0 identically', function() {
+  expect(calculateNumber('SUM', 0, -0)).to.equal(0);
+});
+
+// Test maximum and minimum safe integer
+it('should handle operations near MAX_SAFE_INTEGER correctly', function() {
+  expect(calculateNumber('SUM', Number.MAX_SAFE_INTEGER, 1)).to.equal(Number.MAX_SAFE_INTEGER + 1);
+});
+it('should handle operations near MIN_SAFE_INTEGER correctly', function() {
+  expect(calculateNumber('SUBSTRACT', Number.MIN_SAFE_INTEGER, 1)).to.equal(Number.MIN_SAFE_INTEGER - 1);
+});
